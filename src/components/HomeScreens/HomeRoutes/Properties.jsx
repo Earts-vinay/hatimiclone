@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import SearchBar from '../../SearchBar'
 import { useSelector, useDispatch } from "react-redux";
 import {
-    setLocation,
-    setLoading,
-    fetchProperties,
-  } from "../../../redux/ApiResponse/propertySlice";
+  setLocation,
+  setLoading,
+  fetchProperties,
+} from "../../../redux/ApiResponse/propertySlice";
 import DefaultCard from '../../../utils/DefaultCard';
 import { Container, Grid, Typography } from '@mui/material';
 import AlarmClockIcon from '@mui/icons-material/Alarm';
@@ -34,30 +34,30 @@ const data = [
 ];
 
 const Properties = () => {
-    const dispatch = useDispatch();
-    const { properties, location, loading, error } = useSelector(
-      (state) => state.property
-    );
-    useEffect(() => {
-        const destinationData = JSON.parse(localStorage.getItem("searchData"));
-        dispatch(setLocation(destinationData?.destination?.value || ""));
-      }, [dispatch]);
+  const dispatch = useDispatch();
+  const { properties, location, loading, error } = useSelector(
+    (state) => state.property
+  );
+  useEffect(() => {
+    const destinationData = JSON.parse(localStorage.getItem("searchData"));
+    dispatch(setLocation(destinationData?.destination?.value || ""));
+  }, [dispatch]);
   return (
     <Container>
       <SearchBar
-          className="bookings"
-          style={{ position: "relative", top: 0 }}
-         
-          buttonLabel="Update Search"
-          dropdown="property"
-        />
+        className="bookings"
+        style={{ position: "relative", top: 0 }}
 
-        <Typography variant='h3' sx={{fontFamily:"footlight",color:"white",pb:3,fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3rem' }}}>Properties in {location}</Typography>
-        <Grid container spacing={3}>
-      {data.map((item, index) => (
-        <DefaultCard key={index} {...item} />
-      ))}
-    </Grid>
+        buttonLabel="Update Search"
+        dropdown="property"
+      />
+
+      <Typography variant='h3' sx={{ fontFamily: "footlight", color: "white", pb: 3, fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem', lg: '3rem' } }}>Properties in {location}</Typography>
+      <Grid container spacing={3}>
+        {data.map((item, index) => (
+          <DefaultCard key={index} {...item} />
+        ))}
+      </Grid>
     </Container>
   )
 }

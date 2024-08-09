@@ -1,6 +1,7 @@
-import { Box, Container, Grid, Typography } from '@mui/material';
+import { Box, Container, Divider, Grid, Typography } from '@mui/material';
 import { IoLocationSharp } from "react-icons/io5";
 import CustomButton from './CustomButton';
+import EastIcon from '@mui/icons-material/East';
 
 const DefaultCard = ({ image, title, location, capacity, rating, rooms, size, amenities }) => {
   return (
@@ -14,11 +15,11 @@ const DefaultCard = ({ image, title, location, capacity, rating, rooms, size, am
           overflow: 'hidden',
           width:"100%",
           height: '100%',
-          padding:"30px",
+          padding:"30px 30px 20px",
           gap:"10px"
         }}
       >
-        <Box component="img" src={image} alt={title} sx={{ width:{lg:"40%",md:"100%",sm:"100%",xs:"100%"},height: {lg:"280px",md:"300px",sm:"300px",xs:"200px"}, objectFit: 'cover',borderRadius:"5px" }} />
+        <Box component="img" src={image} alt={title} sx={{ width:{lg:"40%",md:"100%",sm:"100%",xs:"100%"},height: {lg:"280px",md:"300px",sm:"300px",xs:"200px"}, objectFit: 'cover',borderRadius:"10px" }} />
         <Box
           sx={{
             display: 'flex',
@@ -95,8 +96,9 @@ const DefaultCard = ({ image, title, location, capacity, rating, rooms, size, am
         </Box>
         
       </Box>
-     <Box sx={{textAlign:"end",padding:"10px"}}>
-     <CustomButton width='auto'>View Rooms</CustomButton>
+      <Divider sx={{color:"#fff",mx:4}}/>
+     <Box sx={{textAlign:"end",paddingY:"15px",paddingX:"25px"}}>
+     <CustomButton width='auto'>View Rooms <EastIcon sx={{mx:.5}}/> </CustomButton>
      </Box>
      </Box>
     </Grid>
