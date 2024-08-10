@@ -10,6 +10,7 @@ import Blogs from './pages/Blogs';
 import Contactus from './pages/Contactus';
 import "./App.css"
 import Properties from './components/HomeScreens/HomeRoutes/Properties';
+import Booking from './components/HomeScreens/HomeRoutes/Booking';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
        <Routes>
           <Route exact path="/" element={<Home/>} />
           <Route path="/home/properties" element={<Properties/>} />
+          <Route path="/home/booking" element={<Booking/>} />
           <Route path="/destinations" element={<Destinations/>} />
           <Route path="/events" element={<Events/>} />
           <Route path="/daypass" element={<DayPass/>} />
