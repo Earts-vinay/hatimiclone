@@ -118,9 +118,10 @@ const Booking = () => {
                 size={room.room_size}
                 amenities={room.room_amenities.map(amenity => ({
                   name: amenity.amenity_name,
-                  icon: <img src={amenity.amenity_icon} alt={amenity.amenity_name} style={{ width: 24, height: 24 }} />
+                  icon: <img src={amenity.amenity_icon} alt={amenity.amenity_name} style={{ width: 16, height: 16 }} />
                 }))}
                 PropertyLocation={room.property_name}
+                is_booked={false}
                 price={room.room_charge}
                 taxes={
                   Number(room.room_charge) >= 7500
@@ -146,9 +147,10 @@ const Booking = () => {
               rating="4.6"
               rooms={room.bed_size}
               size={room.room_size}
+              is_booked={true}
               amenities={room.room_amenities.map(amenity => ({
                 name: amenity.amenity_name,
-                icon: <img src={amenity.amenity_icon} alt={amenity.amenity_name} style={{ width: 24, height: 24 }} />
+                icon: <img src={amenity.amenity_icon} alt={amenity.amenity_name} style={{ width: 16, height: 16 }} />
               }))}
               PropertyLocation={room.property_name}
               price={room.room_charge}

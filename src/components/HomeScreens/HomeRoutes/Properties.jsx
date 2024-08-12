@@ -8,30 +8,7 @@ import {
 } from "../../../redux/ApiResponse/propertySlice";
 import DefaultCard from '../../../utils/DefaultCard';
 import { Container, Grid, Typography } from '@mui/material';
-import AlarmClockIcon from '@mui/icons-material/Alarm';
-import IronIcon from '@mui/icons-material/Iron'; // Use the closest available icon
-import WifiIcon from '@mui/icons-material/Wifi';
-import KingBedIcon from '@mui/icons-material/KingBed';
 
-
-const data = [
-  {
-    image: '/assets/images/banners/matheran1.jpg',
-    title: 'Maimoon Villa',
-    location: 'Matheran',
-    capacity: 14,
-    rating: 4.6,
-    rooms: 4,
-    size: '35000 sq ft',
-    amenities: [
-      { name: 'Alarm Clock', icon: <AlarmClockIcon /> },
-      { name: 'Iron', icon: <IronIcon /> }, // Closest available icon
-      { name: 'Wi-Fi', icon: <WifiIcon /> },
-      { name: 'King size bed', icon: <KingBedIcon /> }, // Closest available icon
-    ],
-  },
-  // Add more data objects as needed
-];
 
 const Properties = () => {
   const dispatch = useDispatch();
@@ -51,7 +28,12 @@ const Properties = () => {
     dispatch(fetchProperties());
   }, [dispatch]);
 
+  const updateSearch = ({ destination }) => {
+    dispatch(setLocation(destination.value)); // Dispatch the action to update location
+    // const filterData = properties?.data.filter((obj) => obj.property_city === destination.value);
 
+    console.log('>>>>>>>>>>>dest', destination)
+  };
 
 
   return (
@@ -59,7 +41,7 @@ const Properties = () => {
       <SearchBar
         className="bookings"
         style={{ position: "relative", top: 0 }}
-
+        onButtonClick={updateSearch}
         buttonLabel="Update Search"
         dropdown="property"
       />
@@ -85,8 +67,9 @@ const Properties = () => {
                 size={item.property_size}
                 amenities={item.indoor_amenities.map(amenity => ({
                   name: amenity.amenity_name,
-                  icon: <img src={amenity.amenity_icon} alt={amenity.amenity_name} style={{ width: 24, height: 24 }} />
+                  icon: <img src={amenity.amenity_icon} alt={amenity.amenity_name} style={{ width: 16, height: 16 }} />
                 }))}
+                propertyId={item.property_uid}
               />
             ))
           )
