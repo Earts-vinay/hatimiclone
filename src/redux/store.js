@@ -1,11 +1,12 @@
 // store.js
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import propertyReducer from './ApiResponse/propertySlice';
-import {thunk} from 'redux-thunk'; // Import the thunk middleware
+import { roomReducer } from './ApiResponse/roomSlice';
+
 const store = configureStore({
   reducer: {
-  
     property: propertyReducer,
+    room: roomReducer,
   },
 });
 

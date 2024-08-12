@@ -67,7 +67,7 @@ function SearchBar({ onButtonClick, buttonLabel,dropdown },props) {
     if (storedData) {
       const searchData = JSON.parse(storedData);
       // Use searchData as needed in other parts of the component
-      console.log(searchData); // Just for demonstration, use the data accordingly
+      // console.log(searchData); // Just for demonstration, use the data accordingly
     }
   }, []);
   

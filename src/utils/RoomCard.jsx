@@ -11,8 +11,7 @@ const RoomCard = ({ image, title, location, capacity, rating, rooms, size, ameni
   };
   
   return (
- 
-     <Grid item xs={12} sm={12} md={12} lg={12}>
+  <Grid item xs={12} sm={12} md={12} lg={12}>
       <Box sx={{  boxShadow: 4,backgroundColor:"#1E2526",  borderRadius: 2,}}>
       <Box
         sx={{
@@ -72,7 +71,6 @@ const RoomCard = ({ image, title, location, capacity, rating, rooms, size, ameni
                 
               }}
             >
-              
              {amenities.map((amenity, index) => (
         <Box
           key={index}

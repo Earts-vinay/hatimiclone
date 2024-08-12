@@ -21,7 +21,7 @@ function App() {
        <Routes>
           <Route exact path="/" element={<Home/>} />
           <Route path="/home/properties" element={<Properties/>} />
-          <Route path="/home/booking" element={<Booking/>} />
+          <Route path="/home/booking/:propertyId" element={<Booking />} />
           <Route path="/destinations" element={<Destinations/>} />
           <Route path="/events" element={<Events/>} />
           <Route path="/daypass" element={<DayPass/>} />
